@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,8 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.sau.project1.Entity.Person;
 import com.sau.project1.Service.PersonService;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 
@@ -47,7 +47,7 @@ public class PersonController {
         return "redirect:/person";
     }
 
-    @PostMapping("delete")
+    @DeleteMapping("delete")
     public String DeletePerson(@RequestParam("id") Long id) {
 
         personService.delete(id);

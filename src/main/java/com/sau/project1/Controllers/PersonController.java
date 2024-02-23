@@ -47,7 +47,7 @@ public class PersonController {
         return "redirect:/person";
     }
 
-    @DeleteMapping("delete")
+    @PostMapping("delete")
     public String DeletePerson(@RequestParam("id") Long id) {
 
         personService.delete(id);

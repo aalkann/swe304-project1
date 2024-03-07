@@ -12,12 +12,12 @@
     <script src="/js/bootstrap.bundle.min.js"></script>
 
 
-    <title>Document</title>
+    <title>Person Table</title>
 </head>
 
 <body>
-    <h2>Person List</h2>
-    <div class="row justify-content-center">
+
+    <div class="row justify-content-center  mt-5">
         <div class="row justify-content-start w-50">
             <button onclick="showAddForm()" class="btn btn-success" data-toggle="modal"
                 data-target="#personCreateModal">
@@ -30,20 +30,22 @@
             <table class="table table-bordered table-striped  table-hover w-50">
                 <thead>
                     <tr>
-                        <th class="col-sm-4"> Name </th>
-                        <th class="col-sm-4"> Address </th>
+                        <th class="col-sm-1"> Id </th>
+                        <th class="col-sm-3"> Name </th>
+                        <th class="col-sm-3"> Address </th>
                         <th class="col-sm-2"> Actions </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr th:if="${people.empty}">
-                        <td colspan="2"> No Books Available </td>
+                        <td colspan="12"> No person row exists </td>
                     </tr>
                     <tr th:each="person : ${people}">
+                        <td><span th:text="${person.id}"> Name </span></td>
                         <td><span th:text="${person.name}"> Name </span></td>
                         <td><span th:text="${person.address}"> Address </span></td>
                         <td>
-                            <div class=" row justify-content-center ">
+                            <div class=" row justify-content-around ">
                                 <button class="btn btn-primary"
                                     onclick="showUpdateForm(event)"
                                     th:attr="data-id=${person.id}, data-name=${person.name},data-address=${person.address}"
